@@ -6,11 +6,11 @@ Development just started
 
 ## Includes
 - [ ] Visualization
-    - [ ] Local
-    - [ ] Current Public Game
-    - [ ] 3D Freecam
-    - [ ] 2D Topdown
-    - [ ] Nice Graphics c:
+	- [ ] Local
+	- [ ] Current Public Game
+	- [ ] 3D Freecam
+	- [ ] 2D Topdown
+	- [ ] Nice Graphics c:
 - [ ] Discord Rich Presence
 - [ ] Replay System
 

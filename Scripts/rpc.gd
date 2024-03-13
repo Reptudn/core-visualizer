@@ -1,10 +1,13 @@
 extends Node
 
+const discord_app_id = 1217401429598408734
+# 1099618430065324082
+# 1217401429598408734 mine
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	var discord_working: bool = DiscordSDK.get_is_discord_working()
-	var discord_app_id: int = 123
 	
 	# if this is true try reconnectiing after X seconds?
 	if not discord_working:
@@ -23,27 +26,27 @@ func setup_rpc() -> void:
 	DiscordSDK.state = "Choosing Mode"
 	DiscordSDK.large_image = "logo"
 	DiscordSDK.large_image_text = "Core Game"
-	DiscordSDK.small_image_text = "Fighting the end boss! D:"
+	DiscordSDK.small_image_text = "by jkauker"
 	DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system())
 	DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600
 	DiscordSDK.refresh()
 	
-func update_rpc(details: String = null, state: String = null, small_image: String = null, small_image_text: String = null) -> void:
+func update_rpc(details: String = "", state: String = "", small_image: String = "", small_image_text: String = "") -> void:
 	var changed: bool = false
 	
-	if details != null:
+	if details != "":
 		DiscordSDK.details = details
 		changed = true
 	
-	if state != null:
+	if state != "":
 		DiscordSDK.state = state
 		changed = true
 	
-	if small_image != null:
+	if small_image != "":
 		DiscordSDK.small_image = small_image
 		changed = true
 	
-	if small_image_text != null:
+	if small_image_text != "":
 		DiscordSDK.small_image_text = small_image_text
 		changed = true
 	

@@ -6,14 +6,6 @@ const discord_app_id = 1217401429598408734
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	var discord_working: bool = DiscordSDK.get_is_discord_working()
-	
-	# if this is true try reconnectiing after X seconds?
-	if not discord_working:
-		print("Can't connect to discord!")
-		pass
-	
 	setup_rpc()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

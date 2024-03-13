@@ -10,16 +10,16 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _input(event):
-	if event.is_action_pressed(KEY_SPACE):
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("Camera Up"):
 		position.y += speed
-	if event.is_action_pressed(KEY_SHIFT):
+	if event.is_action_pressed("Camera Down"):
 		position.y -= speed
-	if event.is_action_pressed(KEY_W):
-		position.x += speed
-	if event.is_action_pressed(KEY_S):
-		position.x -= speed
-	if event.is_action_pressed(KEY_D):
+	if event.is_action_pressed("Camera Backwards"):
 		position.z += speed
-	if event.is_action_pressed(KEY_A):
+	if event.is_action_pressed("Camera Forward"):
+		position.z -= speed
+	if event.is_action_pressed("Camera Right"):
+		position.x += speed
+	if event.is_action_pressed("Camera Left"):
 		position.x -= speed

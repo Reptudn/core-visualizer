@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4hik7r7pdd5o"]
 
-[ext_resource type="Script" path="res://Scripts/rpc.gd" id="1_0ario"]
+[ext_resource type="Script" path="res://addons/discord-sdk-gd/rpc.gd" id="1_m2r5r"]
 [ext_resource type="Script" path="res://Scripts/CameraControls.gd" id="2_m8kd0"]
 
 [node name="Root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.790332)
-script = ExtResource("1_0ario")
+script = ExtResource("1_m2r5r")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10998, 0)

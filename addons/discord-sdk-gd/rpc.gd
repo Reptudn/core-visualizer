@@ -1,8 +1,6 @@
 extends Node
 
 const discord_app_id = 1217401429598408734
-# 1099618430065324082
-# 1217401429598408734 mine
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,13 +14,13 @@ func setup_rpc() -> void:
 	DiscordSDK.app_id = discord_app_id
 	DiscordSDK.details = "In the Menus"
 	DiscordSDK.state = "Choosing Mode"
-	DiscordSDK.large_image = "logo"
+	DiscordSDK.large_image = "game_logo"
 	DiscordSDK.large_image_text = "Core Game"
 	DiscordSDK.small_image_text = "by jkauker"
 	DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system())
-	DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600
+	#DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600
 	DiscordSDK.refresh()
-	
+
 func update_rpc(details: String = "", state: String = "", small_image: String = "", small_image_text: String = "") -> void:
 	var changed: bool = false
 	

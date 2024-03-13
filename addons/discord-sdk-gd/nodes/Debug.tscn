@@ -262,6 +262,4 @@ libraries = {
 [connection signal="pressed" from="Panel/PrintCurrentUserOnConsole" to="." method="_on_print_current_user_on_console_pressed"]
 [connection signal="pressed" from="Panel/PrintFriends" to="." method="_on_print_friends_pressed"]
 [connection signal="pressed" from="Panel/AcceptJoinRequest" to="." method="_on_accept_join_request_pressed"]
-[connection signal="text_submitted" from="Panel/InviteWithUserID" to="." method="_on_invite_with_user_id_text_submitted"]
-[connection signal="text_submitted" from="Panel/AcceptWithUserID" to="." method="_on_accept_with_user_id_text_submitted"]
-[connection signal="toggled" from="Panel/ToggleSDK" to="." method="_on_toggle_sdk_toggled"]
+[connection signal="text_submitted" from="Panel/InviteWithUserID" to="." method="_on_invite_with_user_id_text_submitte

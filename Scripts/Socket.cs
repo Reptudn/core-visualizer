@@ -31,8 +31,7 @@ public partial class Socket : Node
 			return ;
 		}
 
-		stream = client.GetStream();
-		SendMessage("{id:42}");
+		SendMessage("{\"id\":\"42\"}");
 	}
 
 	public override void _Process(double delta)
@@ -48,6 +47,7 @@ public partial class Socket : Node
 
 	public void SendMessage(string message)
 	{
+		GD.Print("Sending message: ", message);
 		if (stream.CanWrite)
 		{
 			byte[] data = Encoding.UTF8.GetBytes(message);
@@ -61,15 +61,18 @@ public partial class Socket : Node
 		StringBuilder message = new StringBuilder();
 		byte[] data = new byte[1024];
 		int bytesRead;
-
+		int i = 0;
+		
+		stream = client.GetStream();
+		
 		do
 		{
 			bytesRead = stream.Read(data, 0, data.Length);
 			message.Append(System.Text.Encoding.UTF8.GetString(data, 0, bytesRead));
 		}
-		while (!message.ToString().EndsWith("\n"));
-
-		return message.ToString().TrimEnd('\n');
+		while (i++ < 10);
+		GD.Print("Recieved: ", message.ToString());
+		return message.ToString();
 	}
 
 }

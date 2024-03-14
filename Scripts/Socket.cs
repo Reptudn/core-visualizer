@@ -12,14 +12,15 @@ public struct Game
 public partial class Socket : Node
 {
 
-	public TcpClient client;
-	public NetworkStream stream;
+	public TcpClient client = null;
+	public NetworkStream stream = null;
 	public const string socketHostname = "127.0.0.1";
 	public const int socketPort = 4242;
 
 	public override void _Ready()
 	{
-		client = new TcpClient();
+		if (client == null)
+			client = new TcpClient();
 
 		try
 		{
@@ -47,9 +48,11 @@ public partial class Socket : Node
 
 	public void SendMessage(string message)
 	{
-		GD.Print("Sending message: ", message);
+		if (stream == null)
+			stream = client.GetStream();
 		if (stream.CanWrite)
 		{
+			GD.Print("Sending message: ", message);
 			byte[] data = Encoding.UTF8.GetBytes(message);
 			stream.Write(data, 0, data.Length);
 		}
@@ -58,21 +61,24 @@ public partial class Socket : Node
 
 	public string ReceiveMessage()
 	{
+		if (stream == null)
+			stream = client.GetStream();
+
 		StringBuilder message = new StringBuilder();
 		byte[] data = new byte[1024];
 		int bytesRead;
-		int i = 0;
-		
-		stream = client.GetStream();
-		
-		do
+
+		while (stream.DataAvailable)
 		{
 			bytesRead = stream.Read(data, 0, data.Length);
-			message.Append(System.Text.Encoding.UTF8.GetString(data, 0, bytesRead));
+			message.Append(Encoding.UTF8.GetString(data, 0, bytesRead));
 		}
-		while (i++ < 10);
-		GD.Print("Recieved: ", message.ToString());
-		return message.ToString();
+
+		string result = message.ToString();
+		if (!string.IsNullOrEmpty(result))
+			GD.Print("Received: ", result);
+
+		return result;
 	}
 
 }

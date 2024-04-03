@@ -7,6 +7,12 @@
 [node name="Root" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.790332)
 
+[node name="Container" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Container"]
+transform = Transform3D(0.989952, 0, -0.141402, 0, 1, 0, 0.141402, 0, 0.989952, 0, 0, 0)
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10998, 0)
 current = true
